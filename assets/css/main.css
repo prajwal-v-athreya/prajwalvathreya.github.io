@@ -2588,6 +2588,11 @@ input, select, textarea {
 
 /* Image */
 
+	.styledimg.fit img {
+	width: 50%;
+	height: 75%;
+	}
+
 	.image {
 		border: 0;
 		display: inline-block;
@@ -3386,14 +3391,14 @@ input, select, textarea {
 				}
 
 		#intro h1 {
-			font-size: 5rem;
+			font-size: 4rem;
 			line-height: 1;
 		}
 
 		#intro p {
 			font-size: 1.25rem;
 			font-style: italic;
-			margin-top: -0.25rem;
+			margin-top: -1rem;
 			text-align: center;
 		}
 
@@ -3474,9 +3479,9 @@ input, select, textarea {
 			}
 
 				#intro h1 {
-					font-size: 3.25rem;
-					line-height: 1.1;
-					margin-bottom: 1rem;
+					font-size: 4rem;
+					line-height: 9;
+					margin-bottom: 2rem;
 				}
 
 				#intro p {
