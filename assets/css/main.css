@@ -2183,6 +2183,7 @@ input, select, textarea {
 					font-size: 1rem;
 					height: 3.75rem;
 					line-height: 3.75rem;
+
 				}
 
 		}
@@ -2215,8 +2216,8 @@ input, select, textarea {
 		input[type="button"]:hover,
 		button:hover,
 		.button:hover {
-			box-shadow: inset 0 0 0 2px #18bfef;
-			color: #18bfef !important;
+			box-shadow: inset 0 0 0 2px #ffffff;
+			color: #ffffff !important;
 		}
 
 		input[type="submit"].primary,
@@ -2234,9 +2235,13 @@ input, select, textarea {
 			input[type="button"].primary:hover,
 			button.primary:hover,
 			.button.primary:hover {
-				background-color: #18bfef;
+				background-color: #ffffff;
 			}
 
+			.new:hover{
+				background: #000;
+				color: #ffffff;
+			}
 /* Form */
 
 	form {
