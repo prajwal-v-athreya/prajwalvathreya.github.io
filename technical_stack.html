@@ -1,0 +1,136 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Tech Stack</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">Projects</a></li>
+							<li><a href="about_me.html">About Me</a></li>
+							<li class="active"><a href="technical_stack.html" onclick="openPopup();">Tech Stack</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<!-- Post -->
+							<section class="post">
+								<div class="image main"></div>
+
+								<header class="left"><p>Judging by my 'The Matrix'-themed website, you'll notice my frontend finesse is more 'Neo dodging bullets' than 'Front-end Oracle'. But behind the pixels, my backend finesse quietly influences the code matrix, mirroring Morpheus guiding Neo through the digital realm.</p></header> 
+
+								<header class = "left"><h1><b><u>Technical Strengths</u></b></h1></header>
+
+								<header class = "left"><p1><b><u>Programming Languages:</u></b></p1><header>
+									<p>Bash,&nbsp; C,&nbsp; C++,&nbsp; C#,&nbsp; Java,&nbsp; MySQL,&nbsp; Neo4j,&nbsp; Node.js,&nbsp; Python</p>
+
+								<header class = "left"><p1><b><u>Packages (Python):</u></b></p1><header>
+									<p>Fast API,&nbsp; Flask,&nbsp; Matplotlib,&nbsp; NumPy,&nbsp; OpenCV,&nbsp; Pandas,&nbsp; Scikit-Learn</p>
+
+								<header class = "left"><p1><b><u>Deep Learning Frameworks:</u></b></p1><header>
+									 <p>PyTorch,&nbsp; TensorFlow</p>
+
+								<header class = "left"><p1><b><u>DevOps:</u></b></p1><header>
+									<p>Docker,&nbsp; EC2,&nbsp; Elastic Beanstalk,&nbsp; Git,&nbsp; Kubernetes,&nbsp; Redis,&nbsp; S3</p>
+								
+								<header class = "left"><p1><b><u>Workflow Tools:</u></b></p1><header>
+									<p>Confluence,&nbsp; JIRA&nbsp;</p>
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+				<footer id="footer">
+					<section class="split contact">
+						<!-- <section class="alt">
+							<h3>Address</h3>
+						</section> -->
+						<section>
+							<h3>Phone</h3>
+							<p>(+1) 959-237-0577</p>
+						</section>
+						<section>
+							<h3>Email</h3>
+							<p><a href="mailto:prajwalvathreya99@gmail.com">Personal: prajwalvathreya99@gmail.com</a> 		<br>
+								
+								<a href="mailto:athreya.p@northeastern.edu">University: athreya.p@northeastern.edu</a>
+							</p>
+						</section>
+						<section>
+							<h3>Social</h3>
+							<ul class="icons alt">
+								<li><a href="https://www.linkedin.com/in/prajwal-v-athreya" class="icon brands alt fa-linkedin" target="_blank"><span class="label">Linkedin</span></a></li>
+								<li><a href="https://github.com/prajwal-v-athreya" class="icon brands alt fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+							</ul>
+						</section>
+					</section>
+				</footer>
+
+				<!-- Copyright -->
+				<div id="copyright">
+					<ul><li>© Prajwal V Athreya</li></ul>
+				</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+		
+			<div class="overlay" id="overlay"></div>
+			<div class="modal" id="modal">
+				<p>All I'm offering is the truth, nothing more.
+					<br> - Morpheus</p>
+			</div>
+			
+			<script>
+				// Function to open the popup
+				function openPopup() {
+					document.getElementById('overlay').style.display = 'block';
+					document.getElementById('modal').style.display = 'block';
+				}
+			
+				// Function to close the popup
+				function closePopup() {
+					document.getElementById('overlay').style.display = 'none';
+					document.getElementById('modal').style.display = 'none';
+				}
+			
+				// Check if the page is technical_stack.html, and open the popup if true
+				window.onload = function () {
+					var currentPage = window.location.pathname.split("/").pop();
+					if (currentPage === "technical_stack.html") {
+						openPopup();
+					}
+				};
+			
+				// Close the popup when clicking on the overlay
+				document.getElementById('overlay').addEventListener('click', closePopup);
+			</script>
+										
+	</body>
+</html>
