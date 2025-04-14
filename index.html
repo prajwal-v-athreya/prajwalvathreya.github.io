@@ -1,186 +1,144 @@
-<!DOCTYPE HTML>
-<!--
-	Massively by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+<!doctype html>
 <html>
-	<head>
-		<title>Prajwal V Athreya</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+    <head>
+        <title>Prajwal V Athreya</title>
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, user-scalable=no"
+        />
+        <link rel="stylesheet" href="assets/css/main.css" />
+        <link rel="stylesheet" href="assets/css/chat-page.css" />
+        <noscript
+            ><link rel="stylesheet" href="assets/css/noscript.css"
+        /></noscript>
+    </head>
+    <body class="is-preload">
+        <!-- Wrapper -->
+        <div id="wrapper" class="fade-in">
+            <!-- Intro -->
+            <div id="intro" class="styledimg fit">
+                <h1>PRAJWAL V ATHREYA</h1>
+                <p>
+                    The Oracle awaits your questions. Discover the truth about
+                    my technical abilities and professional path.
+                </p>
 
-		<!-- Wrapper -->
-			<div id="wrapper" class="fade-in">
+                <!-- Chat Interface - Moved here directly under the name -->
+                <div id="chat-container">
+                    <div id="chat-messages">
+                        <div class="message-row bot">
+                            <div class="avatar">
+                                <div class="oracle-icon">O</div>
+                            </div>
+                            <div class="message">
+                                Hello, I am Prajwal's AI assistant. What would
+                                you like to know about his skills, experience,
+                                or projects?
+                            </div>
+                        </div>
+                        <!-- Messages will appear here dynamically -->
+                    </div>
+                    <div class="input-area">
+                        <input
+                            type="text"
+                            id="chat-input"
+                            placeholder="Ask me anything about Prajwal..."
+                        />
+                        <button id="send-message">
+                            <i class="fa fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
 
-				<!-- Intro -->
-					<div id="intro" class = "styledimg fit">
-						<h1>Prajwal V Athreya</h1>
-						<p>My small space to demonstrate exciting new headways after taking the red pill.</p>
-					</div>
+            <!-- Nav -->
+            <nav id="nav">
+                <ul class="links">
+                    <li><a href="index.html">Chat</a></li>
+                    <li class="active"><a href="projects.html">Projects</a></li>
+                    <li><a href="about_me.html">About me</a></li>
+                    <li class="active">
+                        <a href="technical_stack.html" onclick="openPopup();"
+                            >Tech Stack</a
+                        >
+                    </li>
+                </ul>
+            </nav>
 
-				<!-- Nav -->
-					<nav id="nav">
-						<ul class="links">
-							<li class="active"><a href="index.html">Projects</a></li>
-							<li><a href="about_me.html">About me</a></li>
-							<li><a href="technical_stack.html" onclick="openPopup();">Tech Stack</a></li>
-						</ul>
-					</nav>
-					<br>
-					<br>
+            <!-- Main - Empty since we moved the chat up -->
+            <div id="main">
+                <!-- You can add additional content here if needed -->
+            </div>
 
-				<!-- Main -->
-					<div id="main">
-						<!-- Posts -->
-							<section class="posts">
+            <!-- Footer -->
+            <footer id="footer">
+                <section class="split contact">
+                    <section>
+                        <h3>Phone</h3>
+                        <p>(+1) 959-237-0577</p>
+                    </section>
+                    <section>
+                        <h3>Email</h3>
+                        <p>
+                            <a href="mailto:prajwalvathreya99@gmail.com"
+                                >Personal: prajwalvathreya99@gmail.com</a
+                            >
+                            <br />
 
-								<article>
-									<header class="major">
-										<h2>Adversarial Attacks On LLMs</h2>
-									</header>
-										<p>This project explores how GPT2 can be used as a sentiment classifier, and how we can use adversarial noise to cause incorrect sentiment classifications. The adversarial examples are created using gradient ascent.</p>
-									<ul class="actions special">
-										<li><a href="https://github.com/prajwalvathreya/LM_adversarial_attacks" class="button new" target="_blank">View Code</a></li>
-									</ul>
-								</article>
+                            <a href="mailto:athreya.p@northeastern.edu"
+                                >University: athreya.p@northeastern.edu</a
+                            >
+                        </p>
+                    </section>
+                    <section>
+                        <h3>Social</h3>
+                        <ul class="icons alt">
+                            <li>
+                                <a
+                                    href="https://www.linkedin.com/in/prajwal-v-athreya"
+                                    class="icon brands alt fa-linkedin"
+                                    target="_blank"
+                                    ><span class="label">Linkedin</span></a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="https://github.com/prajwalvathreya"
+                                    class="icon brands alt fa-github"
+                                    target="_blank"
+                                    ><span class="label">GitHub</span></a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="https://github.com/prajwal-v-athreya/prajwalvathreya.github.io/blob/main/docs/Prajwal_Athreya_Resume.pdf"
+                                    class="icon fa-sharp-duotone fa-regular fa-file"
+                                    target="_blank"
+                                    ><span class="label">Resume</span></a
+                                >
+                            </li>
+                        </ul>
+                    </section>
+                </section>
+            </footer>
 
-								<article>
-									<header class="major">
-										<h2>N-gram Language Model</h2>
-									</header>
-										<p>This project contains the implementation of a language model using n-grams. Evaluated by the it's score and perplexity. It generates sentences based on probability and utilizes the Shannon technique.</p>
-										<br>
-									<ul class="actions special">
-										<li><a href="https://github.com/prajwalvathreya/N_gram_language_model" class="button new" target="_blank">View Code</a></li>
-									</ul>
-								</article>
+            <!-- Copyright -->
+            <div id="copyright">
+                <ul>
+                    <li>© Prajwal V Athreya</li>
+                </ul>
+            </div>
+        </div>
 
-								<article>
-									<header class="major">
-										<h2>Multiagent Grid Navigation</h2>
-									</header>
-										<p>This project explores enhancing autonomous vehicle decisions: From classical planning to advanced RL. Value Iteration to DQN for adaptability, memory efficiency, and scalability in multi-agent scenarios.</p>
-										<br>
-									<ul class="actions special">
-										<li><a href="https://github.com/prajwalvathreya/multiagent-grid-navigation" class="button new" target="_blank">View Code</a></li>
-									</ul>
-								</article>
-
-								<article>
-									<header class="major">
-										<h2>Image Processor</h2>
-									</header>
-										<p>Developed a Java image processing app with meticulous optimization for superior performance. Features seamlessly integrated CLI and GUI for modular, user-friendly experience.</p>
-										<br>
-									<ul class="actions special">
-										<li><a href="https://github.com/prajwalvathreya/Image-Processor" class="button new" target="_blank">View Code</a></li>
-									</ul>
-								</article>
-
-								<article>
-									<header class="major">
-										<h2>Pix2Pix GAN Implementation</h2>
-									</header>
-										<p>This repository showcases my Pix2Pix Generative Adversarial Network (GAN) implementation, delving into image-to-image translation through adversarial training.
-										</p>
-										<br>
-									<ul class="actions special">
-										<li><a href="https://github.com/prajwal-v-athreya/pix2piximplementation" class="button new" target="_blank">View Code</a></li>
-									</ul>
-								</article>
-
-								<article>
-									<header>
-										<h2>Facemask Detection</h2>
-									</header>
-									<br>
-										<p>This model detects whether a person is wearing a face mask or not. It was built using DETECTO. The main.py file is for running this model on images.
-										</p>
-										<br>
-										<br>
-									<ul class="actions special">
-										<li><a href="https://github.com/prajwal-v-athreya/facemask_detection" class="button new" target="_blank">View Code</a></li>
-									</ul>
-								</article>
-
-								<article>
-									<header>
-										<h2>License Plate Detection</h2>
-									</header>
-									<br>
-									<p>This model is a state-of-the-art object detecting model built using Tensorflow's object dection API. A retrained Faster RCNN is used to maximize performance and accuracy.</p>
-									<br>
-									<br>
-									<ul class="actions special">
-										<li><a href="https://github.com/prajwal-v-athreya/License_plate" class="button new" target="_blank">View Code</a></li>
-									</ul>
-								</article>
-
-								<article>
-									<header>
-										<h2>Quote</h2>
-									</header>
-									<br>
-									<p>This is your last chance. After this, there is no turning back. You take the blue pill - the story ends, you wake up in your bed and believe whatever you want to believe. You take the red pill - you stay in Wonderland and I show you how deep the rabbit hole goes.</p>
-									<br>
-									<ul class="actions special">
-										<li><a href="technical_stack.html" class="button red">RED PILL</a></li>
-									</ul>
-								</article>
-							</section>
-
-						<!-- Footer -->
-					</div>
-
-				<!-- Footer -->
-					<footer id="footer">
-						<section class="split contact">
-							<!-- <section class="alt">
-								<h3>Address</h3>
-							</section> -->
-							<section>
-								<h3>Phone</h3>
-								<p>(+1) 959-237-0577</p>
-							</section>
-							<section>
-								<h3>Email</h3>
-								<p><a href="mailto:prajwalvathreya99@gmail.com">Personal: prajwalvathreya99@gmail.com</a> 		<br>
-									
-									<a href="mailto:athreya.p@northeastern.edu">University: athreya.p@northeastern.edu</a>
-								</p>
-							</section>
-							<section>
-								<h3>Social</h3>
-								<ul class="icons alt">
-									<li><a href="https://www.linkedin.com/in/prajwal-v-athreya" class="icon brands alt fa-linkedin" target="_blank"><span class="label">Linkedin</span></a></li>
-									<li><a href="https://github.com/prajwalvathreya" class="icon brands alt fa-github" target="_blank"><span class="label">GitHub</span></a></li>
-									<li><a href="https://github.com/prajwal-v-athreya/prajwalvathreya.github.io/blob/main/docs/Prajwal_Athreya_Resume.pdf" class="icon fa-sharp-duotone fa-regular fa-file" target="_blank"><span class="label">Resume</span></a></li>
-								</ul>
-							</section>
-						</section>
-					</footer>
-
-				<!-- Copyright -->
-				<div id="copyright">
-					<ul><li>© Prajwal V Athreya</li></ul>
-				</div>
-
-
-			</div>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-	</body>
+        <!-- Scripts -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/jquery.scrollex.min.js"></script>
+        <script src="assets/js/jquery.scrolly.min.js"></script>
+        <script src="assets/js/browser.min.js"></script>
+        <script src="assets/js/breakpoints.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <script src="assets/js/main.js"></script>
+        <script src="assets/js/chatbot.js"></script>
+    </body>
 </html>
