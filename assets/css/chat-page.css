@@ -1,17 +1,71 @@
-/* Update chat layout to make all messages left-aligned */
+/* Chat Page Styles */
+#chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    width: 90%;
+    max-width: 800px;
+    margin: 2rem auto 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 1px solid #1e9600;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(30, 150, 0, 0.3);
+    overflow: hidden;
+}
+
+/* When inside the intro section */
+#intro #chat-container {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+#chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    scroll-behavior: smooth;
+    max-height: calc(400px - 70px); /* Subtract input area height */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+#chat-messages::-webkit-scrollbar {
+    width: 8px;
+}
+
+#chat-messages::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+#chat-messages::-webkit-scrollbar-thumb {
+    background: #1e9600;
+    border-radius: 4px;
+}
+
 .message-row {
     display: flex;
     margin-bottom: 16px;
     animation: fadeIn 0.3s ease;
-    flex-direction: row; /* Force all messages to have the same direction */
 }
 
-/* Remove the right alignment for user messages */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .message-row.user {
-    flex-direction: row;
+    flex-direction: row-reverse;
 }
 
-/* Adjust avatar styling for consistent positioning */
 .avatar {
     width: 40px;
     height: 40px;
@@ -26,12 +80,22 @@
 }
 
 .message-row.user .avatar {
-    margin-right: 12px;
-    margin-left: 0;
+    margin-right: 0;
+    margin-left: 12px;
     background-color: #333;
 }
 
-/* Message bubble styles */
+.oracle-icon {
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.message-row.user .oracle-icon {
+    content: "U";
+    color: #1e9600;
+}
+
 .message {
     max-width: 80%;
     padding: 12px 16px;
@@ -45,55 +109,178 @@
 .message-row.user .message {
     background-color: #1e9600;
     color: white;
-    border-top-left-radius: 4px; /* Changed from right to left */
+    border-top-right-radius: 4px;
 }
 
 .message-row.bot .message {
     border-top-left-radius: 4px;
 }
 
-/* Typing animation styles */
-.typing-effect {
-    display: inline-block;
-    white-space: pre-wrap;
-    word-break: break-word;
+.input-area {
+    display: flex;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-top: 1px solid rgba(30, 150, 0, 0.3);
+    position: relative;
+    height: 70px;
 }
 
-.typing-character {
-    opacity: 0;
-    animation: typeCharacter 0.05s forwards;
+#chat-input {
+    flex: 1;
+    padding: 12px 16px;
+    border-radius: 24px;
+    border: 1px solid #1e9600;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
 }
 
-@keyframes typeCharacter {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+#chat-input:focus {
+    border-color: #2cc907;
+    box-shadow: 0 0 8px rgba(30, 150, 0, 0.6);
 }
 
-/* Cursor blinking effect */
-.typing-cursor {
-    display: inline-block;
-    width: 2px;
-    height: 1em;
+#send-message {
+    width: 44px;
+    height: 44px;
+    margin-left: 10px;
+    border-radius: 50%;
     background-color: #1e9600;
-    margin-left: 2px;
-    animation: blink 1s infinite;
-    vertical-align: middle;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: background-color 0.3s;
 }
 
-.message-row.user .typing-cursor {
-    background-color: white;
+#send-message:hover {
+    background-color: #2cc907;
+}
+
+.typing-indicator {
+    display: flex;
+    align-items: center;
+    margin-top: 4px;
+}
+
+.typing-indicator span {
+    width: 8px;
+    height: 8px;
+    margin: 0 2px;
+    background-color: #1e9600;
+    border-radius: 50%;
+    display: inline-block;
+    animation: blink 1.5s infinite;
+}
+
+.typing-indicator span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+    animation-delay: 0.4s;
 }
 
 @keyframes blink {
     0%,
     100% {
-        opacity: 0;
+        opacity: 0.3;
+        transform: scale(0.8);
     }
     50% {
         opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Matrix rain effect */
+.matrix-rain {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.matrix-column {
+    position: absolute;
+    top: 0;
+    font-size: 1.5em;
+    color: rgba(30, 150, 0, 0.2);
+    transform: translateY(-100%);
+    animation: rain linear infinite;
+    white-space: nowrap;
+}
+
+@keyframes rain {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(100vh);
+    }
+}
+
+/* Media queries for responsive design */
+@media screen and (max-width: 768px) {
+    #chat-container {
+        height: 350px;
+        width: 95%;
+    }
+
+    #chat-messages {
+        max-height: calc(350px - 70px);
+    }
+
+    .message {
+        max-width: 90%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #chat-container {
+        height: 300px;
+    }
+
+    #chat-messages {
+        max-height: calc(300px - 70px);
+    }
+
+    .avatar {
+        width: 30px;
+        height: 30px;
+    }
+
+    .oracle-icon {
+        font-size: 16px;
+    }
+
+    .message {
+        font-size: 0.9em;
+        padding: 10px 14px;
+    }
+
+    #intro #chat-container {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+}
+
+/* Fix for mobile Safari */
+@supports (-webkit-touch-callout: none) {
+    #chat-container {
+        height: 400px;
+    }
+
+    #chat-messages {
+        max-height: calc(400px - 70px);
     }
 }
