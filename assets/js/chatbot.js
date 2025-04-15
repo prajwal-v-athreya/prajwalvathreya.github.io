@@ -161,6 +161,13 @@ document.addEventListener("DOMContentLoaded", function () {
         .replace(/'/g, "&#039;");
   }
 
+  // Function to decode HTML entities
+  function decodeHtmlEntities(text) {
+    const textArea = document.createElement('textarea');
+    textArea.innerHTML = text;
+    return textArea.value;
+  }
+
   // Function to get response from your API
   async function getBotResponse(message) {
     // Show typing indicator
@@ -196,8 +203,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Extract the answer based on your API format
         if (data && data.answer) {
-          // Remove extra quotes if present and escape HTML
-          botReply = escapeHtml(data.answer.replace(/^"(.*)"$/, "$1"));
+          // Remove extra quotes if present, decode HTML entities, and escape HTML
+          botReply = escapeHtml(decodeHtmlEntities(data.answer.replace(/^"(.*)"$/, "$1")));
         } else {
           botReply =
             "I couldn't process that. What else would you like to know about Prajwal?";
