@@ -4,6 +4,32 @@ document.addEventListener("DOMContentLoaded", function () {
   const sendMessage = document.getElementById("send-message");
   const chatMessages = document.getElementById("chat-messages");
 
+  // Process the initial message
+  function processInitialMessage() {
+    const initialMessage = document.querySelector(".message-row.bot .message");
+    if (initialMessage) {
+      const text = initialMessage.textContent.trim();
+      initialMessage.textContent = ''; // Clear the content
+      
+      // Split text into words and create spans
+      const words = text.split(/\s+/);
+      words.forEach((word, index) => {
+        const wordSpan = document.createElement("span");
+        wordSpan.className = "word";
+        wordSpan.textContent = word + " ";
+        initialMessage.appendChild(wordSpan);
+        
+        // Animate each word with a slight delay
+        setTimeout(() => {
+          wordSpan.classList.add("visible");
+        }, index * 50);
+      });
+    }
+  }
+
+  // Call processInitialMessage when the page loads
+  processInitialMessage();
+
   // Function to send message
   function sendChatMessage() {
     const message = chatInput.value.trim();

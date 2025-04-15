@@ -5,8 +5,8 @@
     min-height: calc(100vh - 400px);
     max-height: calc(100vh - 200px);
     width: 100%;
-    max-width: 100%;
-    margin: 0;
+    max-width: 800px;
+    margin: 0 auto;
     background-color: transparent;
     overflow: hidden;
 }
@@ -50,8 +50,9 @@
 
 .message-row {
     display: flex;
-    margin: 0;
+    margin: 0 auto;
     animation: fadeIn 0.3s ease;
+    max-width: 800px;
     width: 100%;
 }
 
@@ -67,7 +68,7 @@
 }
 
 .message-row.user {
-    flex-direction: row;
+    flex-direction: row-reverse;
 }
 
 .avatar {
@@ -83,7 +84,7 @@
 }
 
 .message-row.user .avatar {
-    margin: 4px 12px 0 0;
+    margin: 4px 0 0 12px;
     background-color: #333;
 }
 
@@ -98,7 +99,7 @@
 }
 
 .message {
-    width: 100%;
+    max-width: 85%;
     padding: 12px 16px;
     border-radius: 8px;
     background-color: rgba(30, 150, 0, 0.15);
@@ -106,17 +107,8 @@
     line-height: 1.5;
     font-size: 0.95em;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
     word-wrap: break-word;
     white-space: pre-wrap;
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.message.visible {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 .message .word {
@@ -132,7 +124,7 @@
 }
 
 .message-row.user .message {
-    background-color: rgba(30, 150, 0, 0.8);
+    background-color: rgba(30, 150, 0, 0.3);
 }
 
 .input-area {
