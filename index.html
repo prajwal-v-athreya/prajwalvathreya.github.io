@@ -12,8 +12,34 @@
         <noscript
             ><link rel="stylesheet" href="assets/css/noscript.css"
         /></noscript>
+        <script>
+            window.onload = function() {
+                window.scrollTo(0, 0);
+            }
+            // Prevent default scroll restoration
+            if ('scrollRestoration' in history) {
+                history.scrollRestoration = 'manual';
+            }
+        </script>
     </head>
     <body class="is-preload">
+        <!-- Navigation Toggle Button -->
+        <div id="nav-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <!-- Navigation Menu -->
+        <nav id="slide-nav">
+            <ul>
+                <li><a href="index.html" class="active">Chat</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="about_me.html">About me</a></li>
+                <li><a href="technical_stack.html">Tech Stack</a></li>
+            </ul>
+        </nav>
+
         <!-- Wrapper -->
         <div id="wrapper" class="fade-in">
             <!-- Intro -->
@@ -24,7 +50,7 @@
                     my technical abilities and professional path.
                 </p>
 
-                <!-- Chat Interface - Moved here directly under the name -->
+                <!-- Chat Interface -->
                 <div id="chat-container">
                     <div id="chat-messages">
                         <div class="message-row bot">
@@ -50,21 +76,7 @@
                 </div>
             </div>
 
-            <!-- Nav -->
-            <nav id="nav">
-                <ul class="links">
-                    <li><a href="index.html">Chat</a></li>
-                    <li class="active"><a href="projects.html">Projects</a></li>
-                    <li><a href="about_me.html">About me</a></li>
-                    <li class="active">
-                        <a href="technical_stack.html" onclick="openPopup();"
-                            >Tech Stack</a
-                        >
-                    </li>
-                </ul>
-            </nav>
-
-            <!-- Main - Empty since we moved the chat up -->
+            <!-- Main -->
             <div id="main">
                 <!-- You can add additional content here if needed -->
             </div>

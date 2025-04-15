@@ -255,4 +255,34 @@
 
 		}
 
+	// Navigation Toggle
+	document.addEventListener('DOMContentLoaded', function() {
+		const navToggle = document.getElementById('nav-toggle');
+		const slideNav = document.getElementById('slide-nav');
+
+		if (navToggle && slideNav) {
+			navToggle.addEventListener('click', function() {
+				this.classList.toggle('active');
+				slideNav.classList.toggle('active');
+			});
+
+			// Close navigation when clicking outside
+			document.addEventListener('click', function(event) {
+				if (!slideNav.contains(event.target) && !navToggle.contains(event.target)) {
+					navToggle.classList.remove('active');
+					slideNav.classList.remove('active');
+				}
+			});
+
+			// Set active link based on current page
+			const currentPath = window.location.pathname;
+			const links = slideNav.getElementsByTagName('a');
+			for (let link of links) {
+				if (link.getAttribute('href') === currentPath) {
+					link.classList.add('active');
+				}
+			}
+		}
+	});
+
 })(jQuery);

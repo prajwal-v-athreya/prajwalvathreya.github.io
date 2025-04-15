@@ -3324,24 +3324,28 @@ input, select, textarea {
 			}
 
 		#wrapper.fade-in:before {
+			-moz-pointer-events: none;
+			-webkit-pointer-events: none;
+			-ms-pointer-events: none;
 			pointer-events: none;
 			-moz-transition: opacity 1s ease-in-out;
 			-webkit-transition: opacity 1s ease-in-out;
 			-ms-transition: opacity 1s ease-in-out;
 			transition: opacity 1s ease-in-out;
-			-moz-transition-delay: 0.75s;
-			-webkit-transition-delay: 0.75s;
-			-ms-transition-delay: 0.75s;
-			transition-delay: 0.75s;
-			background: #1e252d;
+			-moz-transition-delay: 0.25s;
+			-webkit-transition-delay: 0.25s;
+			-ms-transition-delay: 0.25s;
+			transition-delay: 0.25s;
+			background: transparent; /* Changed from background-color */
 			content: '';
 			display: block;
 			height: 100%;
 			left: 0;
 			opacity: 0;
-			position: fixed;
+			position: absolute;
 			top: 0;
 			width: 100%;
+			z-index: 10001;
 		}
 
 		body.is-preload #wrapper.fade-in:before {
@@ -3758,25 +3762,23 @@ input, select, textarea {
 			display: -webkit-flex;
 			display: -ms-flex;
 			display: flex;
-			-moz-flex-grow: 1;
-			-webkit-flex-grow: 1;
-			-ms-flex-grow: 1;
-			flex-grow: 1;
-			-moz-flex-shrink: 1;
-			-webkit-flex-shrink: 1;
-			-ms-flex-shrink: 1;
-			flex-shrink: 1;
-			font-family: "Source Sans Pro", Helvetica, sans-serif;
-			font-weight: 900;
-			letter-spacing: 0.075em;
+			-moz-flex-wrap: wrap;
+			-webkit-flex-wrap: wrap;
+			-ms-flex-wrap: wrap;
+			flex-wrap: wrap;
+			border-left: solid 1px;
+			border-top: solid 1px;
+			border-color: rgba(30, 150, 0, 0.3); /* Adjusted border color */
+			margin-bottom: 2rem;
 			list-style: none;
-			margin-bottom: 0;
 			padding-left: 0;
-			text-transform: uppercase;
 		}
 
 			#nav ul.links li {
-				display: block;
+				width: 25%;
+				border-right: solid 1px;
+				border-bottom: solid 1px;
+				border-color: rgba(30, 150, 0, 0.3); /* Adjusted border color */
 				padding-left: 0;
 			}
 
@@ -3786,26 +3788,39 @@ input, select, textarea {
 					-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 					transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 					display: block;
-					font-size: 0.8rem;
-					outline: none;
-					padding: 0 2rem;
+					padding: 1.25rem 0;
+					font-family: "Source Sans Pro", Helvetica, sans-serif;
+					font-size: 0.7rem;
+					font-weight: 900;
+					letter-spacing: 0.25em;
+					line-height: 1.5;
+					text-align: center;
+					text-transform: uppercase;
+					border-bottom: 0;
+					color: #4eff02; /* Changed text color to green */
+					background-color: transparent; /* Ensure transparent background */
 				}
 
 					#nav ul.links li a:hover {
-						color: inherit !important;
-						background-color: rgba(255, 255, 255, 0.1);
+						color: #fff; /* Brighter color on hover */
+						background-color: rgba(30, 150, 0, 0.1); /* Subtle green glow on hover */
 					}
 
 				#nav ul.links li.active {
-					background-color: #4eff02;
+					/* Remove background color rule */
 				}
 
 					#nav ul.links li.active a {
-						color: #1e252d;
+						color: #fff; /* Make active link text brighter */
+						font-weight: 900; /* Ensure it stays bold */
+						/* Add an underline or other indicator if desired */
+						/* border-bottom: solid 2px #fff; */
 					}
 
 						#nav ul.links li.active a:hover {
-							color: #000000 !important;
+							/* Keep active hover state same as regular hover */
+							color: #fff;
+							background-color: rgba(30, 150, 0, 0.1);
 						}
 
 		#nav ul.icons {
