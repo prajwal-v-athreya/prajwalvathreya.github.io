@@ -38,12 +38,34 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const messageDiv = document.createElement("div");
     messageDiv.className = "message";
-    messageDiv.textContent = text;
+    
+    // Split text into words and create spans for each word
+    const words = text.split(/\s+/);
+    words.forEach((word, index) => {
+        const wordSpan = document.createElement("span");
+        wordSpan.className = "word";
+        wordSpan.textContent = word + " ";
+        messageDiv.appendChild(wordSpan);
+        
+        // Animate each word with a slight delay
+        setTimeout(() => {
+            wordSpan.classList.add("visible");
+        }, index * 50); // 50ms delay between words
+    });
 
     messageRow.appendChild(avatar);
     messageRow.appendChild(messageDiv);
-
     chatMessages.appendChild(messageRow);
+
+    // Make the message container visible after a short delay
+    setTimeout(() => {
+        messageDiv.classList.add("visible");
+    }, 100);
+
+    // Scroll to bottom after all words are typed
+    setTimeout(() => {
+        scrollToBottom();
+    }, words.length * 50 + 200);
   }
 
   // Function to show typing indicator
@@ -103,6 +125,16 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  // Function to escape HTML tags
+  function escapeHtml(unsafe) {
+    return unsafe
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+  }
+
   // Function to get response from your API
   async function getBotResponse(message) {
     // Show typing indicator
@@ -138,8 +170,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Extract the answer based on your API format
         if (data && data.answer) {
-          // Remove extra quotes if present
-          botReply = data.answer.replace(/^"(.*)"$/, "$1");
+          // Remove extra quotes if present and escape HTML
+          botReply = escapeHtml(data.answer.replace(/^"(.*)"$/, "$1"));
         } else {
           botReply =
             "I couldn't process that. What else would you like to know about Prajwal?";
