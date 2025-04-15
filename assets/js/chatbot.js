@@ -151,21 +151,17 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Function to escape HTML tags
-  function escapeHtml(unsafe) {
-    return unsafe
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-  }
-
-  // Function to decode HTML entities
-  function decodeHtmlEntities(text) {
-    const textArea = document.createElement('textarea');
-    textArea.innerHTML = text;
-    return textArea.value;
+  // Function to decode HTML entities and fix special characters
+  function cleanText(text) {
+    return text
+        .replace(/&amp;/g, '&')
+        .replace(/&lt;/g, '<')
+        .replace(/&gt;/g, '>')
+        .replace(/&quot;/g, '"')
+        .replace(/&#039;/g, "'")
+        .replace(/&amp;#039;/g, "'")
+        .replace(/\u0027/g, "'")
+        .replace(/\u2019/g, "'");
   }
 
   // Function to get response from your API
@@ -203,17 +199,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Extract the answer based on your API format
         if (data && data.answer) {
-          // Remove extra quotes if present, decode HTML entities, and escape HTML
-          botReply = escapeHtml(decodeHtmlEntities(data.answer.replace(/^"(.*)"$/, "$1")));
+          // Clean and process the text
+          botReply = cleanText(data.answer.replace(/^"(.*)"$/, "$1"));
         } else {
-          botReply =
-            "I couldn't process that. What else would you like to know about Prajwal?";
+          botReply = "I couldn't process that. What else would you like to know about Prajwal?";
         }
       } else {
         // Use fallback if API call fails
         console.error("API error:", response.status);
-        botReply =
-          fallbackReplies[Math.floor(Math.random() * fallbackReplies.length)];
+        botReply = fallbackReplies[Math.floor(Math.random() * fallbackReplies.length)];
       }
 
       // Remove typing indicator
@@ -231,10 +225,7 @@ document.addEventListener("DOMContentLoaded", function () {
       removeTypingIndicator();
 
       // Show error message
-      appendMessage(
-        "Error connecting to the Oracle. The Matrix has you...",
-        "bot",
-      );
+      appendMessage("Error connecting to the Oracle. The Matrix has you...", "bot");
       scrollToBottom();
     }
   }
